@@ -7,7 +7,7 @@ function Header() {
       <Navbar sticky="top" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
-            Tutorial-Hub</Navbar.Brand>
+            Tutorials-Hub</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link>Reactjs</Nav.Link>
             <Nav.Link >Angular</Nav.Link>

@@ -12,32 +12,32 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <Container>
-          <Row>
-            <Col sm={3}>
-              <div className='left-content'>
+        <div className='flex-container'>
+
+          <div className='flex-item-left'>
+
+            <div className='left-content'>
+              <ul>
+                <li><NavLink to="/basics">Basics</NavLink></li>
+                <li><NavLink to="/events">Events</NavLink></li>
+              </ul>
+            </div>
 
 
-                <ul>
-                  <li><NavLink to="/basics">Basics</NavLink></li>
-                  <li><NavLink to="/events">Events</NavLink></li>
-                </ul>
+          </div>
 
+          <div className='flex-item-right'>
+            <div className='right-content'>
+              <Routes>
+                <Route path="/" >
+                  <Route path="basics" element={<Basics />} />
+                  <Route path="events" element={<Events />} />
+                </Route>
+              </Routes>
+            </div>
+          </div>
+        </div>
 
-              </div>
-            </Col>
-            <Col sm={9}>
-              <div className='right-content'>
-                <Routes>
-                  <Route path="/" >
-                    <Route path="basics" element={<Basics />} />
-                    <Route path="events" element={<Events />} />
-                  </Route>
-                </Routes>
-              </div>
-            </Col>
-          </Row>
-        </Container>
       </BrowserRouter>
     </>
   );

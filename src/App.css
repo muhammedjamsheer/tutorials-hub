@@ -30,7 +30,21 @@
 .left-content ul li .active {
   color: #3da4c0 !important;
 }
+.right-content{
+  padding: 15px 110px 0px 30px;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.right-content {
-  padding: 10px;
+.flex-item-left {
+  flex: 20%;
+}
+
+.flex-item-right {
+  flex: 80%;
+}
+.seperater{
+  height: 20px;
 }
