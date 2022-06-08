@@ -7,6 +7,10 @@
 .codesyntax {
   border-radius: 17px;
 }
+.codesyntax code {
+  font-size: 14px !important;
+}
+
 
 .left-content {
   height: 93vh;
@@ -47,4 +51,14 @@
 }
 .seperater{
   height: 20px;
+}
+.subheader{
+  font-weight: bold;
+  color: #3fb0cf;
+}
+.menu{
+  background-color: red;
+}
+.navigation-menu{
+  color: pink;
 }

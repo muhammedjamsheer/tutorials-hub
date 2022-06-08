@@ -2,43 +2,47 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
-function Events() {
-    const codeString = `
 
-    import React from "react";
-    import uniquePropHOC from "./lib/unique-prop-hoc";
+function Events() {
+
+    const oClickevent = `
+    import { Button } from 'react-bootstrap';
     
-    
-    
-    class Expire extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { component: props.children }
+    function User() {
+        const clickHandle = () => {
+            alert("clicked")
         }
-        componentDidMount() {
-            setTimeout(() => {
-                this.setState({
-                    component: null
-                });
-            }, this.props.time || this.props.seconds * 1000);
+        function removeItem(id) {
+            console.log(id)
         }
-        render() {
-            return this.state.component;
-        }
+        function handleChange(evt) {
+            console.log("new value", evt.target.value);
+          }
+
+        return (
+            <>
+                {/*onClick Event */}
+                <Button variant="primary" onClick={clickHandle} >Click me</Button>
+
+                {/*onClick Event with  arguments */}
+                <Button variant="primary" onClick={() => removeItem('1')}>Click me</Button>
+
+                {/* onChange Event */}
+                <input type="text" onChange={handleChange}/>
+            </>
+        )
     }
-    
-    export default uniquePropHOC(["time", "seconds"])(Expire);
-    
-    
+    export default User
     `;
+
+
     return (
         <div>
             <h4>Events</h4>
+            <p>React events are named in camelCase</p>
             <SyntaxHighlighter className="codesyntax" language="jsx" style={vscDarkPlus}>
-                {codeString}
+                {oClickevent}
             </SyntaxHighlighter>
-
-            <p>We’ll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.</p>
         </div>
     )
 }
