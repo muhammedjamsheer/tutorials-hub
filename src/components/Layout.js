@@ -9,7 +9,7 @@ function Layout() {
                 <div className='flex-item-left'>
                     <div className='left-content'>
                         <ul>
-                            <li><NavLink to="/test">Test</NavLink></li>
+                            <li><NavLink to="/users">Users</NavLink></li>
                             <li><NavLink to="/basics">Basics</NavLink></li>
                             <li><NavLink to="/styling">Styling</NavLink></li>
                             <li><NavLink to="/events">Events</NavLink></li>

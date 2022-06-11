@@ -10,6 +10,8 @@ import Layout from './components/Layout';
 import Home from './reactjs/Home';
 import Routing from './reactjs/Routing';
 import Notfound from './reactjs/Notfound';
+import UserDetails from './reactjs/UserDetails';
+import Usrdata from './reactjs/Usrdata';
 function App() {
   return (
     <>
@@ -17,14 +19,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="test" element={<User />} />
+            <Route path="users" element={<User />} />
+            <Route path="userdetails/:userid" element={<UserDetails />} />
+            <Route path="userdata" element={<Usrdata />} />
             <Route path="basics" element={<Basics />} />
             <Route path="styling" element={<Styling />} />
             <Route path="events" element={<Events />} />
             <Route path="usestatehooks" element={<Hooks />} />
             <Route path="routing" element={<Routing />} />
+            <Route path="*" element={<Notfound />} />
           </Route>
-          <Route path="*" element={<Notfound />} />
+       
         </Routes>
       </BrowserRouter>
     </>
