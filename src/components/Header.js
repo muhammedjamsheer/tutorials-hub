@@ -1,5 +1,7 @@
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
+import '../App.css';
 
 function Header() {
   return (
@@ -9,15 +11,14 @@ function Header() {
           <Navbar.Brand href="#home">
             Tutorials-Hub</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link>Reactjs</Nav.Link>
-            <Nav.Link >Angular</Nav.Link>
-            <Nav.Link >Html</Nav.Link>
-            <Nav.Link>Css</Nav.Link>
-            <Nav.Link >Bootsrap</Nav.Link>
+            <NavLink to="html"><span className="navlink">Html</span></NavLink>
+            <NavLink to="css"><span className="navlink">Css</span></NavLink>
+            <NavLink to="javascript"><span className="navlink">Javascript</span></NavLink>
+            <NavLink to="angular"><span className="navlink">AngularJs</span></NavLink>
+            <NavLink to="reactjs"><span className="navlink"></span>ReactJs</NavLink>
           </Nav>
         </Container>
       </Navbar>
-
     </>
   )
 }

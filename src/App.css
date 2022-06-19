@@ -77,3 +77,12 @@ body, html {
 .navigation-menu {
   color: pink;
 }
+/* navbar */
+.navbar-nav a{
+  color: #f7f7f7;
+  text-decoration: none;
+  margin-left:25px ;
+}
+.navbar-nav  .active{
+  color: #0dcaf0;
+}
