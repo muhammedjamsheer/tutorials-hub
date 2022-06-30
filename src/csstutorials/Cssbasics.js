@@ -237,21 +237,21 @@ function Cssbasics() {
     margin: 25px  50px; /* top and bottom margin is 25px , right and left margins are 50px*/
   }
   `;
-  const css_margin_auto= `
+  const css_margin_auto = `
   div {
     width: 300px;
     margin: auto;
     border: 1px solid red;
   }
   `;
-  const css_padding= `
+  const css_padding = `
   div {
     padding-top: 50px;
     padding-right: 30px;
     padding-bottom: 50px;
     padding-left: 80px;
   `;
-  const css_padding_shorthand= `
+  const css_padding_shorthand = `
   p {
     padding: 25px 50px 75px 100px; /* top padding is 25px , right padding is 50px ,bottom padding is 75px* ,left padding is 100px */
   }
@@ -264,6 +264,199 @@ function Cssbasics() {
   If the padding property has two values:
   p {
     padding: 25px  50px; /* top and bottom padding is 25px , right and left padding are 50px*/
+  }
+  `;
+
+  const css_height_width = `
+  div {
+    height: 200px;
+    width: 50%;
+    background-color: powderblue;
+  }
+  `;
+  const css_text_color = `
+  h1 {
+    color: green;
+  }
+  `;
+  const css_text_align = `
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-align: left;
+  }
+  h3 {
+    text-align: right;
+  }
+  h4 {
+    text-align: justify;
+  }
+  `;
+  const css_text_align_last = `
+  p {
+    text-align-last: right;
+  }
+  p {
+    text-align-last: center;
+  }
+  p {
+    text-align-last: justify;
+  }
+  `;
+  const css_text_decoration_line = `
+  h1 {
+    text-decoration-line: overline;
+  }
+  h2 {
+    text-decoration-line: line-through;
+  }
+  h3 {
+    text-decoration-line: underline;
+  }
+  p {
+    text-decoration-line: overline underline;
+  }
+  `;
+  const css_text_decoration_color = `
+  h1 {
+    text-decoration-line: overline;
+    text-decoration-color: red;
+  }
+  `;
+  const css_text_decoration_style = `
+  h1 {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+    text-decoration-style: solid;
+  }
+
+  h3 {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+  }
+  `;
+  const css_text_decoration_thickness = `
+  p {
+    text-decoration-line: underline;
+    text-decoration-color: red;  
+    text-decoration-style: double;
+    text-decoration-thickness: 5px;  
+  }
+  `;
+  const css_text_decoration_shorthand = `
+  h1 {
+    text-decoration: underline;
+  }
+  
+  h2 {
+    text-decoration: underline red;
+  }
+  
+  h3 {
+    text-decoration: underline red double;
+  }
+  
+  p {
+    text-decoration: underline red double 5px;
+  }  
+  `;
+  const css_text_decoration_none = `
+  a {
+    text-decoration: none;
+  }
+  `;
+  const css_text_transformation = `
+  p {
+    text-transform: uppercase;
+  }
+  
+  p {
+    text-transform: lowercase;
+  }
+  
+  p {
+    text-transform: capitalize;
+  }
+  `;
+  const css_text_indent = `
+  p {
+    text-indent: 50px;
+  }
+  `;
+  const css_text_letter_space = `
+  h1 {
+    letter-spacing: 5px;
+  }
+  `;
+  const css_text_line_height = `
+  p {
+    line-height: 1.8;
+  }
+  `;
+  const css_text_word_space = `
+  p {
+    word-spacing: 10px;
+  }
+  `;
+  const css_text_white_space = `
+  white-space: normal|nowrap|pre|pre-line|pre-wrap|initial|inherit;
+
+  p {
+    white-space: nowrap;
+  }
+  
+  p {
+    white-space: normal;
+  }
+  
+  p {
+    white-space: pre;
+  }
+  `;
+  const css_text_shadow = `
+  h1 {
+    text-shadow: 2px 2px;
+  }
+  h1 {
+    text-shadow: 2px 2px red;
+  }
+  `;
+  const css_font_family = `
+  p {
+    font-family: "Times New Roman", Times, serif;
+  }
+  `;
+  const css_font_style = `
+  p.normal {
+    font-style: normal;
+  }
+  
+  p.italic {
+    font-style: italic;
+  }
+  
+  p.oblique {
+    font-style: oblique;
+  }
+  `;
+  const css_font_weight = `
+  p.normal {
+    font-weight: normal;
+  }
+  
+  p.thick {
+    font-weight: bold;
+  }
+  `;
+  const css_font_size = `
+  h1 {
+    font-size: 40px;
+  }
+  
+  /*Responsive Font Size*/
+  h1 {
+    font-size: 10vw;
   }
   `;
   return (
@@ -399,7 +592,7 @@ function Cssbasics() {
 
         </div>
       }
-       {pagename === "padding" &&
+      {pagename === "padding" &&
         <div>
           <h4>CSS Padding</h4>
           <p>The CSS padding properties are used to generate space around an element's content, inside of any defined borders.</p>
@@ -412,8 +605,169 @@ function Cssbasics() {
             {css_padding_shorthand}
           </SyntaxHighlighter>
         </div>
-      } 
+      }
+      {pagename === "heightorwidth" &&
+        <div>
+          <h4>CSS Height and Width</h4>
+          <p>The height and width properties are used to set the height and width of an element.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_height_width}
+          </SyntaxHighlighter>
+        </div>
+      }
+      {pagename === "outline" &&
+        <div>
+          <h4>CSS Outline</h4>
+          <p>The height and width properties are used to set the height and width of an element.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_height_width}
+          </SyntaxHighlighter>
+        </div>
+      }
+      {pagename === "text" &&
+        <div>
+          <h4>CSS Text</h4>
+          <p>CSS has a lot of properties for formatting text.</p>
+          <h5>1.Text Color</h5>
+          <p>The color property is used to set the color of the text. The color is specified by:</p>
+          <ul>
+            <li>a color name - like "red"</li>
+            <li>a HEX value - like "#ff0000"</li>
+            <li>an RGB value - like "rgb(255,0,0)"</li>
+          </ul>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_color}
+          </SyntaxHighlighter>
+          <h5>2. Text Alignment</h5>
+          <p>The text-align property is used to set the horizontal alignment of a text.</p>
+          <p>A text can be left or right aligned, centered, or justified.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_align}
+          </SyntaxHighlighter>
 
+          <h5>3. Text Align Last</h5>
+          <p>The text-align-last property specifies how to align the last line of a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_align_last}
+          </SyntaxHighlighter>
+
+          <h5>4. Text Decoration</h5>
+          <p>The <span class="marktext">text-decoration-line</span> property is used to add a decoration line to text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_line}
+          </SyntaxHighlighter>
+
+          <p>The <span class="marktext">text-decoration-color</span>  property is used to set the color of the decoration line.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_color}
+          </SyntaxHighlighter>
+
+          <p>The <span class="marktext">text-decoration-style</span>  property is used to set the style of the decoration line.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_style}
+          </SyntaxHighlighter>
+
+          <p>The <span class="marktext">text-decoration-thickness</span>  property is used to set the thickness  of the decoration line.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_thickness}
+          </SyntaxHighlighter>
+
+          <h6>The Shorthand Property</h6>
+          <ul>
+            <li> text-decoration-line (required)</li>
+            <li> text-decoration-color (optional)</li>
+            <li>text-decoration-style (optional)</li>
+            <li> text-decoration-thickness (optional)</li>
+          </ul>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_shorthand}
+          </SyntaxHighlighter>
+
+
+          <p>The <span class="marktext">text-decoration: none </span>property is used to remove the underline from links</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_decoration_none}
+          </SyntaxHighlighter>
+
+          <h5>5.Text Transformation</h5>
+          <p>The <span class="marktext">text-transform</span>   property is used to specify uppercase and lowercase letters in a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_transformation}
+          </SyntaxHighlighter>
+
+          <h5>6. Text Spacing</h5>
+          <b>Text Indentation</b>
+          <p>The <span class="marktext">text-indent</span> property is used to specify the indentation of the first line of a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_indent}
+          </SyntaxHighlighter>
+
+
+          <b>Letter Spacing</b>
+          <p>The <span class="marktext">letter-spacing</span> property is used to specify the space between the characters in a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_letter_space}
+          </SyntaxHighlighter>
+
+          <b>Line Height</b>
+          <p>The <span class="marktext">line-height</span> property is used to specify the space between lines.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_line_height}
+          </SyntaxHighlighter>
+
+          <b>Word Spacing</b>
+          <p>The <span class="marktext">word-spacing</span> property is used to specify the space between the words in a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_word_space}
+          </SyntaxHighlighter>
+
+          
+          <b>White Spacing</b>
+          <p>The <span class="marktext">white-spacing</span> property specifies how white-space inside an element is handled.</p>
+          
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_white_space}
+          </SyntaxHighlighter>
+
+          <b>Text Shadow</b>
+          <p>The <span class="marktext">text-shadow</span> property adds shadow to text.</p>
+          
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_text_shadow}
+          </SyntaxHighlighter>
+
+          
+
+        </div>
+      }
+      {pagename === "fonts" &&
+        <div>
+          <h4>CSS Font</h4>
+          <h5>Font Family</h5>
+          <p>The <span class="marktext">font-family</span> property to specify the font of a text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_font_family}
+          </SyntaxHighlighter>
+
+          <h5>Font Style</h5>
+          <p>The <span class="marktext">font-style</span> property is mostly used to specify italic text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_font_style}
+          </SyntaxHighlighter>
+
+          <h5>Font Weight</h5>
+          <p>The <span class="marktext">font-weight</span>  property specifies the weight of a font.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_font_weight}
+          </SyntaxHighlighter>
+
+          <h5>Font Size</h5>
+          <p>The <span class="marktext">font-size</span> property sets the size of the text.</p>
+          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
+            {css_font_size}
+          </SyntaxHighlighter>
+        </div>
+      }
 
 
 

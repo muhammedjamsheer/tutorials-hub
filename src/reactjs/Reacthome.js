@@ -12,7 +12,7 @@ function Reacthome() {
                             <li><NavLink to="/reactjs/styling">Styling</NavLink></li>
                             <li><NavLink to="/reactjs/events">Events</NavLink></li>
                             <li><NavLink to="/reactjs/routing">Routing</NavLink></li>
-                            <li><NavLink to="/reactjs/usestatehooks">Use State Hook</NavLink></li>
+                            <li><NavLink to="/reactjs/hooks">Use State Hook</NavLink></li>
                         </ul>
                     </div>
                 </div>

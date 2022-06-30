@@ -12,7 +12,7 @@ function Header() {
             Tutorials-Hub</Navbar.Brand>
           <Nav className="me-auto">
             <NavLink to="html"><span className="navlink">Html</span></NavLink>
-            <NavLink to="css"><span className="navlink">Css</span></NavLink>
+            <NavLink to="css"><span className="navlink">CSS</span></NavLink>
             <NavLink to="javascript"><span className="navlink">Javascript</span></NavLink>
             <NavLink to="angular"><span className="navlink">AngularJs</span></NavLink>
             <NavLink to="reactjs"><span className="navlink"></span>ReactJs</NavLink>

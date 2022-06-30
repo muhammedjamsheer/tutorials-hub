@@ -16,6 +16,8 @@ import Reacthome from './reactjs/Reacthome';
 import Cssbasics from './csstutorials/Cssbasics';
 import Csshomepage from './csstutorials/Csshomepage';
 import Cssselector from './csstutorials/Cssselector';
+import Angularhomepage from './angular/Angularhomepage';
+import Angulardatabinding from './angular/Angulardatabinding';
 
 
 
@@ -43,11 +45,38 @@ function App() {
               <Route path="" element={<Cssbasics />} />
               <Route path="basics" element={<Cssbasics />} />
               <Route path="selector" element={<Cssselector />} />
+              <Route path="combinators" element={<Cssselector />} />
+              <Route path="pseudoclass" element={<Cssselector />} />
+              <Route path="pseudoelement" element={<Cssselector />} />
+
               <Route path="colors" element={<Cssbasics />} />
               <Route path="backgrounds" element={<Cssbasics />} />
               <Route path="borders" element={<Cssbasics />} />
               <Route path="margins" element={<Cssbasics />} />
               <Route path="padding" element={<Cssbasics />} />
+              <Route path="heightorwidth" element={<Cssbasics />} />
+
+              <Route path="outline" element={<Cssbasics />} />
+              <Route path="text" element={<Cssbasics />} />
+              <Route path="fonts" element={<Cssbasics />} />
+              
+            </Route>
+
+
+            
+            <Route path="angular/" element={<Angularhomepage />}>
+              <Route path="" element={<Angularhomepage />} />
+              <Route path="databinding" element={<Angulardatabinding />}>
+              <Route path="interpolation" element={<Angulardatabinding />} />
+              <Route path="propertybinding" element={<Angulardatabinding />} />
+              <Route path="eventbinding" element={<Angulardatabinding />} />
+
+              </Route>
+
+
+
+        
+              
             </Route>
 
 
