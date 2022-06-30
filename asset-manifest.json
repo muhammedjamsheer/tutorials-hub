@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tutorials-hub/static/css/main.0d992eb6.css",
-    "main.js": "/tutorials-hub/static/js/main.ffd81a2b.js",
+    "main.css": "/tutorials-hub/static/css/main.d3f9123b.css",
+    "main.js": "/tutorials-hub/static/js/main.c3a834a4.js",
     "index.html": "/tutorials-hub/index.html",
-    "main.0d992eb6.css.map": "/tutorials-hub/static/css/main.0d992eb6.css.map",
-    "main.ffd81a2b.js.map": "/tutorials-hub/static/js/main.ffd81a2b.js.map"
+    "main.d3f9123b.css.map": "/tutorials-hub/static/css/main.d3f9123b.css.map",
+    "main.c3a834a4.js.map": "/tutorials-hub/static/js/main.c3a834a4.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d992eb6.css",
-    "static/js/main.ffd81a2b.js"
+    "static/css/main.d3f9123b.css",
+    "static/js/main.c3a834a4.js"
   ]
 }
