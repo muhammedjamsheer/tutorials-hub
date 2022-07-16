@@ -6,14 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 function Angulardatabinding() {
   const location = useLocation();
   const pagename = location.pathname.split("/").slice(-1)[0];
-  const css_syntax = `
-  selector{property:value}
 
-  p {
-    color: red;
-    text-align: center;
-  }
-  `;
   const interpolation_synatx = `
   {{ templateExpression }}
   `;
@@ -172,7 +165,7 @@ displaymodal:boolean=false;
   }
 }
 `;
-const eventbinding_eventpayload_example_html = `
+  const eventbinding_eventpayload_example_html = `
 <input (input)="handleInput($event)">
 <p>You have entered {{value}}</p>
 
@@ -184,7 +177,7 @@ export class AppComponent {
     this.value = (event.target as HTMLInputElement).value;
   }
 `;
-const eventbinding_Templatereference_example_html = `
+  const eventbinding_Templatereference_example_html = `
 <input #el (input)="handleInput1(el)">
 <p>You have entered {{val}}</p>
 
@@ -197,8 +190,23 @@ const eventbinding_Templatereference_example_html = `
   }
 }
 `;
+const eventbindingsyntax = `(target-event)="TemplateStatement"`;
+  const twoway_databinding_html =
+    `<input type="text" name="value" [(ngModel)]="value">
+<p> You entered {{value}}</p>
 
-  const eventbindingsyntax = `(target-event)="TemplateStatement"`;
+`;
+  const twoway_databinding_ts =
+    `export class AppComponent {
+ value="";
+ clearValue() {
+   this.value="";
+ }
+}
+`;
+const twoway_databinding_syntax =`[(ngModel)] = "[property of your component]" `;
+
+
 
   return (
     <>
@@ -221,11 +229,19 @@ const eventbinding_Templatereference_example_html = `
 
 
           <h5>Two Way binding</h5>
-          <p>In one way binding data flows from one direction. Either from view to component or from component to view.</p>
-
-          <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
-            {css_syntax}
-          </SyntaxHighlighter>
+          <p>The two-way binding has a feature to update data from component to view and vice-versa.</p>
+          <p>In two way data binding, property binding and event binding are combined together.</p>
+          <SyntaxHighlighter className="codesyntax" language="html" style={vscDarkPlus}>{twoway_databinding_syntax}</SyntaxHighlighter>
+          <div className='row codeediter'>
+            <div className="col">
+              app.component.html
+              <SyntaxHighlighter className="codesyntax" language="html" style={vscDarkPlus}>{twoway_databinding_html}</SyntaxHighlighter>
+            </div>
+            <div className="col">
+              app.component.ts
+              <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{twoway_databinding_ts}</SyntaxHighlighter>
+            </div>
+          </div>
         </div>
       }
       {pagename === "interpolation" &&
@@ -309,7 +325,7 @@ const eventbinding_Templatereference_example_html = `
       {pagename === "propertybinding" &&
         <div>
           <h3>Property binding</h3>
-          <p>In interpolation data flows from component to a property of an html element.</p>
+          <p>In Property binding data flows from component to a property of an html element.</p>
           <p>Whenever the value of the component changes, the Angular updates the element property in the View. You can set the properties such as class, href, src, textContent, etc using property binding</p>
           <SyntaxHighlighter className="codesyntax" language="css" style={vscDarkPlus}>
             {propertybinding_syntax}

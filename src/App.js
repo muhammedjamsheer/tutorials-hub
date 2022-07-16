@@ -18,6 +18,8 @@ import Csshomepage from './csstutorials/Csshomepage';
 import Cssselector from './csstutorials/Cssselector';
 import Angularhomepage from './angular/Angularhomepage';
 import Angulardatabinding from './angular/Angulardatabinding';
+import Angularpipes from './angular/Angularpipes';
+import Angularcomponetcammunication from './angular/Angularcomponetcammunication';
 
 
 
@@ -59,27 +61,36 @@ function App() {
               <Route path="outline" element={<Cssbasics />} />
               <Route path="text" element={<Cssbasics />} />
               <Route path="fonts" element={<Cssbasics />} />
-              
+
             </Route>
 
 
-            
+
             <Route path="angular/" element={<Angularhomepage />}>
-              <Route path="" element={<Angularhomepage />} />
+              {/* <Route path="" element={<Angularhomepage />} /> */}
               <Route path="databinding" element={<Angulardatabinding />}>
-              <Route path="interpolation" element={<Angulardatabinding />} />
-              <Route path="propertybinding" element={<Angulardatabinding />} />
-              <Route path="eventbinding" element={<Angulardatabinding />} />
+                <Route path="interpolation" element={<Angulardatabinding />} />
+                <Route path="propertybinding" element={<Angulardatabinding />} />
+                <Route path="eventbinding" element={<Angulardatabinding />} />
+              </Route>
+              <Route path="pipes" element={<Angularpipes />} >
+                <Route path="datepipe" element={<Angularpipes />} />
+                <Route path="casepipe" element={<Angularpipes />} />
+                <Route path="slicepipe" element={<Angularpipes />} />
+                <Route path="currencypipe" element={<Angularpipes />} />
+                <Route path="decimalpipe" element={<Angularpipes />} />
+              </Route>
+              <Route path="angularcomponetcammunication" element={<Angularcomponetcammunication />} >
+                <Route path="urldatapass" element={<Angularcomponetcammunication />} />
+                <Route path="inputdatapass" element={<Angularcomponetcammunication />} />
+                <Route path="outputdatapass" element={<Angularcomponetcammunication />} />
+                <Route path="viewchilddatapass" element={<Angularcomponetcammunication />} />
+                <Route path="servicedatapass" element={<Angularcomponetcammunication />} />
+
 
               </Route>
 
-
-
-        
-              
             </Route>
-
-
             <Route path="*" element={<Notfound />} />
           </Route>
 

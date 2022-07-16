@@ -4,11 +4,11 @@ import { NavLink, Outlet } from "react-router-dom";
 function Angularhomepage() {
 
     const menus = [
-        {
-            id: 1, label: "Data Binding", path: "/angular/databinding", children: [
+        {id: 1, label: "Data Binding", path: "/angular/databinding", children: [ ]},
+        {id: 2, label: "Pipes", path: "/angular/pipes", children: [ ]},
+        {id: 2, label: "Component Cammunication", path: "/angular/angularcomponetcammunication", children: [ ]},
 
-            ]
-        },
+        
     ]
     return (
         <div>
@@ -16,11 +16,9 @@ function Angularhomepage() {
                 <div className='flex-item-left'>
                     <div className='left-content'>
                         <ul>
-
                             {menus.map((menu, i) => (
                                 < div key={i}>
                                     <li ><NavLink to={menu.path}>{menu.label}</NavLink></li>
-
                                     <span>
                                         {menu.children.length > 0 && (
                                             <ul className="childclass">
@@ -32,15 +30,8 @@ function Angularhomepage() {
                                             </ul>
                                         )}
                                     </span>
-
-
-
-
                                 </div>
-
-
                             ))}
-
                         </ul>
                     </div>
                 </div>
