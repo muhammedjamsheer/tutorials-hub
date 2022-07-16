@@ -7,6 +7,7 @@ function Angularhomepage() {
         {id: 1, label: "Data Binding", path: "/angular/databinding", children: [ ]},
         {id: 2, label: "Pipes", path: "/angular/pipes", children: [ ]},
         {id: 2, label: "Component Cammunication", path: "/angular/angularcomponetcammunication", children: [ ]},
+        {id: 2, label: "Reactive Form", path: "/angular/reactiveforms", children: [ ]},
 
         
     ]

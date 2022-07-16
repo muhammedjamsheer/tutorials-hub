@@ -98,6 +98,12 @@ body, html {
   margin: 10px 0px 10px;
   padding: 10px 0px;
 }
+.codeediterstatndard{
+  background: #dfe5e7;
+  border-radius: 10px;
+  margin: 10px 0px 10px;
+  padding: 10px 0px 0px;
+}
 .customdateformat::first-letter{
   color: rgb(71, 161, 247);
   font-weight: bold;

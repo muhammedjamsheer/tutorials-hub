@@ -20,6 +20,7 @@ import Angularhomepage from './angular/Angularhomepage';
 import Angulardatabinding from './angular/Angulardatabinding';
 import Angularpipes from './angular/Angularpipes';
 import Angularcomponetcammunication from './angular/Angularcomponetcammunication';
+import Angularforms from './angular/Angularforms';
 
 
 
@@ -86,9 +87,15 @@ function App() {
                 <Route path="outputdatapass" element={<Angularcomponetcammunication />} />
                 <Route path="viewchilddatapass" element={<Angularcomponetcammunication />} />
                 <Route path="servicedatapass" element={<Angularcomponetcammunication />} />
+              </Route>
 
+
+              <Route path="reactiveforms" element={<Angularforms />} >
+                <Route path="reactiveformexample" element={<Angularforms />} />
+                <Route path="setvaluepatchvalue" element={<Angularforms />} />
 
               </Route>
+
 
             </Route>
             <Route path="*" element={<Notfound />} />
