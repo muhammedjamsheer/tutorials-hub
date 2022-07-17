@@ -142,7 +142,7 @@ export class UserComponent implements OnInit {
   }
 }
 `
-const setvalueExample=`
+    const setvalueExample = `
  ngOnInit() {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -187,7 +187,7 @@ const setvalueExample=`
     this.userForm.get('address')?.setValue(address);
   }
 `
-const patchvalueExample=`
+    const patchvalueExample = `
 ngOnInit() {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -210,6 +210,137 @@ ngOnInit() {
       }
     })
   }`
+    const findingthevalue = `
+  onSubmit() {
+    console.log(this.reactiveForm.value);
+  }
+  `
+    const valuechanges = `
+  ngOnInit() {
+    this.reactiveForm.valueChanges.subscribe(x => {
+      console.log(x);
+    })
+    this.reactiveForm.get("address").valueChanges.subscribe(x => {
+      console.log(x);
+    })
+  }
+  `
+    const addControl =
+        `addControl() {
+    this.reactiveForm.addControl("middleName", new FormControl('', [Validators.required]));
+}`
+    const removeControl =
+        `removeControl() {
+    this.reactiveForm.removeControl("middleName");
+}`
+    const setControl =
+        `setControl() {
+  this.reactiveForm.setControl("middleName", new FormControl('lastName', [Validators.required]);
+}`
+    const contains =
+        `containsControl() {
+    console.log(this.reactiveForm.contains("middleName"));
+}`
+    const builtinvalidater =
+        `
+this.userForm = this.fb.group({
+    /* Required Validator */
+    firstname: ['', Validators.required],
+    /* Minlength Validator */
+    middlename: ['',[Validators.required,Validators.minLength(10)]],
+    /* Maxlength Validator */
+    lastname: ['',[Validators.required,Validators.Maxlength(10)]],
+    /* Pattern Validator */
+    mobile: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+    /* Email Validator */
+    email: ['', [Validators.required,Validators.email]],
+
+    /* Min Validator for numeric values*/
+    age: ['',[Validators.required,Validators.min(15)]],
+    /* Max Validator for numeric values*/
+    age: ['',[Validators.required,Validators.max(15)]],
+  });
+`
+    const dynamicvalidations =
+        `
+ngOnInit() {
+    this.userForm = this.fb.group({
+      name: [''],
+    });
+  }
+  setValidator() {
+    this.userForm.get("name").setValidators([Validators.required]);
+    this.userForm.get("name").updateValueAndValidity();
+  }
+  clearValidation() {
+    this.userForm.get("name").clearValidators();
+    this.userForm.get("name").updateValueAndValidity();
+ }
+`
+    const agerangeCustomvalidater_service =
+        `import { AbstractControl } from '@angular/forms';
+export function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value !== '' && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+        return { ageRange: true };
+    }
+    return null;
+}
+`
+const agerangeCustomvalidater_ts =
+`import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl,FormControl } from '@angular/forms';
+import { ageRangeValidator } from 'src/app/_services/age.validator';
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.scss']
+})
+export class EmployeeComponent implements OnInit {
+
+  employeeForm!: FormGroup;
+  submitted: boolean = false;
+
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit() {
+    this.employeeForm = this.fb.group({
+      name: ['', Validators.required],
+      age: ['', [Validators.required,ageRangeValidator]],
+    });
+  }
+}
+`
+const agerangeCustomvalidater_html =
+`<label class="col-2"> Age:</label>
+<div class="col-4">
+    <input type="text" formControlName="age" placeholder="Your age" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['age'].errors }">
+    <div *ngIf="submitted && f['age'].errors" class="text-danger ">
+        <div *ngIf="f['age'].errors['required']">age is required</div>
+        <div *ngIf="f['age'].errors['ageRange']">age should be between 18 to 45</div>
+    </div>
+</div>
+`
+const agerangeCustomvalidater_passparam_service=`
+function ageRangeValidator(min: number, max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+        if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
+            return { 'ageRange': true };
+        }
+        return null;
+    };
+}`
+const agerangeCustomvalidater_passparam_ts=`
+min = 10;
+max = 20;
+ngOnInit() {
+    this.loginForm = new FormGroup({
+        email: new FormControl(null, [Validators.required]),
+        password: new FormControl(null, [Validators.required, Validators.maxLength(8)]),
+        age: new FormControl(null, [ageRangeValidator(this.min, this.max)])
+    });
+}`
     return (
         <>
             <h3>Angular Reactive Forms</h3>
@@ -221,9 +352,75 @@ ngOnInit() {
             <dl>
                 <dd> <Link to="reactiveformexample" >Reactive Forms Example</Link></dd>
                 <dd> <Link to="setvaluepatchvalue" >SetValue & PatchValue in Reactive Forms</Link></dd>
-
-
+                <dd> <Link to="valuechanges" >Finding the value and valuechanges</Link></dd>
+                <dd> <Link to="dynamicform" >Adding Controls Dynamically to Form</Link></dd>
+                <dd> <Link to="validations" >Validations In Reactive Form</Link></dd>
             </dl>
+            {pagename === "validations" &&
+                <div>
+                    <h3>Built-in Validators </h3>
+                    <p>The Angular has provided several built-in validators</p>
+
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{builtinvalidater}</SyntaxHighlighter>
+                    <h3>Dynamic Validations </h3>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{dynamicvalidations}</SyntaxHighlighter>
+                    <h3>Custom Validations </h3>
+                    <p><b> The custom validator returns either of the following:</b></p>
+                    <p>1. If the validation fails, it returns an object, which contains a key-value pair. Key is the name of the error and the value is always Booleantrue..</p>
+                    <p>2. If the validation does not fail, it returns null.</p>
+                    create a file with name age.validator.ts and paste
+                    <div class="codeediterstatndard" >
+                        src\app\_services\age.validator.ts
+                        <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{agerangeCustomvalidater_service}</SyntaxHighlighter>
+                        employee.component.ts
+                        <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{agerangeCustomvalidater_ts}</SyntaxHighlighter>
+                        employee.component.html
+                        <SyntaxHighlighter className="codesyntax" language="html" style={vscDarkPlus}>{agerangeCustomvalidater_html}</SyntaxHighlighter>
+                    </div>
+                    <h3>Passing Parameters to a Custom Validator</h3>
+                    <div class="codeediterstatndard" >
+                        src\app\_services\age.validator.ts
+                        <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{agerangeCustomvalidater_passparam_service}</SyntaxHighlighter>
+                        employee.component.ts
+                        <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{agerangeCustomvalidater_passparam_ts}</SyntaxHighlighter>
+                      
+                    </div>
+                </div>
+
+            }
+            {pagename === "dynamicform" &&
+                <div>
+                    <h3>Adding Controls Dynamically to Form</h3>
+                    <h5>addControl()</h5>
+                    <p>Adds a control to the FormGroup and also updates validity & validation status. If the control already exists, then ignores it</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{addControl}</SyntaxHighlighter>
+
+                    <h5>removeControl() </h5>
+                    <p>This method will remove the control with the provided name from the FormGroup.</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{removeControl}</SyntaxHighlighter>
+
+                    <h5>setControl() </h5>
+                    <p>Replaces the control with the provided name with the new control.</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{setControl}</SyntaxHighlighter>
+
+                    <h5>contains() </h5>
+                    <p>Check whether the control with the provided name exists or not.</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{contains}</SyntaxHighlighter>
+                </div>
+
+            }
+            {pagename === "valuechanges" &&
+                <div>
+                    <h3>Finding the Value</h3>
+                    <p>The value returns the object with a key-value pair for each member of the Form Group.</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{findingthevalue}</SyntaxHighlighter>
+                    <h3>valueChanges</h3>
+                    <p>The angular emits the valueChanges event whenever the value of any of the controls in the Form Group changes.</p>
+                    <p> The value may change when user updates the element in the UI or programmatically through the setValue/patchValue method</p>
+                    <SyntaxHighlighter className="codesyntax" language="js" style={vscDarkPlus}>{valuechanges}</SyntaxHighlighter>
+                </div>
+
+            }
             {pagename === "setvaluepatchvalue" &&
                 <div>
                     <h3>SetValue & PatchValue in Reactive Forms</h3>

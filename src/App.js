@@ -93,7 +93,9 @@ function App() {
               <Route path="reactiveforms" element={<Angularforms />} >
                 <Route path="reactiveformexample" element={<Angularforms />} />
                 <Route path="setvaluepatchvalue" element={<Angularforms />} />
-
+                <Route path="valuechanges" element={<Angularforms />} />
+                <Route path="dynamicform" element={<Angularforms />} />
+                <Route path="validations" element={<Angularforms />} />
               </Route>
 
 
